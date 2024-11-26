@@ -46,6 +46,15 @@ void bind_scaf(nb::module_ &m)
 {
   nb::class_<igl::triangle::SCAFData>(m, "SCAFData")
     .def(nb::init<>());
+  nb::enum_<igl::MappingEnergyType>(m, "MappingEnergyType")
+    .value("ARAP", igl::MappingEnergyType::ARAP)
+    .value("LOG_ARAP", igl::MappingEnergyType::LOG_ARAP)
+    .value("SYMMETRIC_DIRICHLET", igl::MappingEnergyType::SYMMETRIC_DIRICHLET)
+    .value("CONFORMAL", igl::MappingEnergyType::CONFORMAL)
+    .value("EXP_CONFORMAL", igl::MappingEnergyType::EXP_CONFORMAL)
+    .value("EXP_SYMMETRIC_DIRICHLET", igl::MappingEnergyType::EXP_SYMMETRIC_DIRICHLET)
+    .value("NUM_SLIM_ENERGY_TYPES", igl::MappingEnergyType::NUM_SLIM_ENERGY_TYPES)
+    .export_values();
   m.def(
     "scaf_precompute",
     &pyigl::scaf_precompute,
