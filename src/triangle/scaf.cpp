@@ -53,7 +53,6 @@ void bind_scaf(nb::module_ &m)
     .value("CONFORMAL", igl::MappingEnergyType::CONFORMAL)
     .value("EXP_CONFORMAL", igl::MappingEnergyType::EXP_CONFORMAL)
     .value("EXP_SYMMETRIC_DIRICHLET", igl::MappingEnergyType::EXP_SYMMETRIC_DIRICHLET)
-    .value("NUM_SLIM_ENERGY_TYPES", igl::MappingEnergyType::NUM_SLIM_ENERGY_TYPES)
     .export_values();
   m.def(
     "scaf_precompute",
@@ -72,7 +71,7 @@ void bind_scaf(nb::module_ &m)
 @param[in] F           #F by 3/3 list of mesh faces (triangles/tets)
 @param[in] V_init      #V by 3 list of initial mesh vertex positions
 @param[in,out] data  resulting precomputed data
-@param[in] slim_energy Energy type to minimize
+@param[in] scaf_energy Energy type to minimize
 @param[in] b           list of boundary indices into V (soft constraint)
 @param[in] bc          #b by dim list of boundary conditions (soft constraint)
 @param[in] soft_p      Soft penalty factor (can be zero)
